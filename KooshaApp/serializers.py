@@ -24,7 +24,8 @@ class ShortUrlField(serializers.Field):
         return {'short_url': short_url}
 
 
-class ShortUrlSerializer(serializers.ModelSerializer):
+class ShortUrlSerializer(serializers.Serializer):
+
     short_url = ShortUrlField(source='*')
     long_url = serializers.URLField(required=True)
     created_at = serializers.DateTimeField(read_only=True)
