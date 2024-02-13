@@ -25,15 +25,15 @@ class ShortUrlModel(models.Model):
         )
 
         while True:
-            short_id = ''.join(
+            short_url = ''.join(
                 random.choice(CHARACTERS)
                 for _ in range(cls.URL_LENGTH)
             )
 
             try:
-                cls.objects.get(short_id=short_id)
+                cls.objects.get(short_url=short_url)
             except ObjectDoesNotExist:
-                return short_id
+                return short_url
 
     def get_absolute_url(self):
         return reverse('redirect', kwargs={'short_url': self.short_url})
