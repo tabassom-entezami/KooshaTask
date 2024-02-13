@@ -1,6 +1,4 @@
 import os
-from typing import Dict
-
 from django.conf import settings
 from rest_framework import serializers
 from shortener.models import ShortUrl
