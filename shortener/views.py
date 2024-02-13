@@ -5,7 +5,7 @@ from .models import ShortUrl
 from .serializers import ShortUrlSerializer
 from django.shortcuts import redirect
 from rest_framework.throttling import UserRateThrottle, AnonRateThrottle
-from django.core.cache import caches,cache
+from django.core.cache import cache
 
 ''' ViewSet instead of APIVIEW would take less work but I can also set the throttling policy on
  a per-view or per-viewset basis, using the APIView class-based views.'''
