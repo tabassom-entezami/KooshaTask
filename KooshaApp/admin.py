@@ -9,4 +9,6 @@ class ShortUrlAdmin(admin.ModelAdmin):
     list_filter = ('created_at',)
     search_fields = ('long_url',)
     ordering = ('-created_at',)
+    list_display_links = ('id', 'short_url')
+    list_per_page = 20
 
