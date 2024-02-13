@@ -1,5 +1,5 @@
 """
-URL configuration for Koosha project.
+URL configuration for koosha project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.0/topics/http/urls/
@@ -16,9 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from KooshaApp import urls
+from shortener import urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('KooshaApp.urls'))
+    path('', include('shortener.urls'))
 ]

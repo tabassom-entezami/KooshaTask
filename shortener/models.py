@@ -6,7 +6,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.db import models
 
 
-class ShortUrlModel(models.Model):
+class ShortUrl(models.Model):
     # short_url could be pk as well
     URL_LENGTH = 6
     short_url = models.CharField(max_length=URL_LENGTH, blank=False, unique=True)

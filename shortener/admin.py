@@ -1,9 +1,9 @@
 from django.contrib import admin
 
-from KooshaApp.models import ShortUrlModel
+from shortener.models import ShortUrl
 
 
-@admin.register(ShortUrlModel)
+@admin.register(ShortUrl)
 class ShortUrlAdmin(admin.ModelAdmin):
     list_display = ('id', 'short_url', 'long_url', 'created_at')
     list_filter = ('created_at',)
