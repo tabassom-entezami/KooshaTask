@@ -16,7 +16,7 @@ class ShortUrlModel(models.Model):
         ordering = ('-created_at',)
 
     @classmethod
-    def generate_short_id(cls) -> str:
+    def generate_short_url(cls) -> str:
 
         CHARACTERS = (
                 string.ascii_uppercase
@@ -27,7 +27,7 @@ class ShortUrlModel(models.Model):
         while True:
             short_id = ''.join(
                 random.choice(CHARACTERS)
-                for _ in range(cls.ID_LENGTH)
+                for _ in range(cls.URL_LENGTH)
             )
 
             try:
