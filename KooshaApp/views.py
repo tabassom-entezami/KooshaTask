@@ -5,10 +5,11 @@ from .models import ShortUrlModel
 from .serializers import ShortUrlSerializer
 from django.shortcuts import redirect
 from django_ratelimit.decorators import ratelimit
+from django.utils.decorators import method_decorator
 
-@ratelimit(key='ip', rate='1/m')
 class ShortenUrl(APIView):
 
+    @method_decorator(ratelimit(key='ip', rate='1/m', method='POST'))
     def post(self, request):
         data = {
             'long_url': request.data.get('url'),
@@ -23,9 +24,10 @@ class ShortenUrl(APIView):
 
 
 #Q does spiliting the request add help to find ip?
-@ratelimit(key='ip', rate='1/m')
+
 class GetOriginalUrl(APIView):
 
+    @method_decorator(ratelimit(key='ip', rate='1/m', method='GET'))
     def get(self, request, short_url: str):
         try:
             obj = ShortUrlModel.objects.all().get(short_url=short_url)
