@@ -7,6 +7,7 @@ from django.db import models
 
 
 class ShortUrlModel(models.Model):
+    # short_url could be pk as well
     URL_LENGTH = 6
     short_url = models.CharField(max_length=URL_LENGTH, blank=False, unique=True)
     long_url = models.URLField(blank=False)
@@ -39,4 +40,4 @@ class ShortUrlModel(models.Model):
         return reverse('redirect', kwargs={'short_url': self.short_url})
 
     def __str__(self):
-        return f'{self.long_url} to {self.short_url}'
+        return f'<{self.long_url} to {self.short_url}>'
