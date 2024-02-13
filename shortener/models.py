@@ -36,8 +36,5 @@ class ShortUrl(models.Model):
             except ObjectDoesNotExist:
                 return short_url
 
-    def get_absolute_url(self):
-        return reverse('redirect', kwargs={'short_url': self.short_url})
-
     def __str__(self):
         return f'<{self.long_url} to {self.short_url}>'
